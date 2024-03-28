@@ -226,6 +226,9 @@ jar {
     dependsOn generateMetaFiles
 }
 
+tasks.register("mavenJar"){
+
+}
 
 tasks.named("processIdeaSettings").configure {
     dependsOn("injectTags")
