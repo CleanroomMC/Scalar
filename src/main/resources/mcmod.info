@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
-  "url": "",
+  "modid": "scalar",
+  "name": "Scalar",
+  "description": "Standalone Scala provider mod, support Scala 2.11.",
+  "version": "${mod_version}",
+  "mcversion": "${minecraft_version}",
+  "url": "https://github.com/CleanroomMC/Scalar",
   "updateUrl": "",
-  "authorList": ["CleanroomMC"],
-  "credits": "Authors of this project",
+  "authorList": ["CleanroomMC", "kappa_maintainer"],
+  "credits": "ShadowFact",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
