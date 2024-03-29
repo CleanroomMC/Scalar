@@ -17,11 +17,11 @@ import java.util.Map;
 public class ScalarLoadingPlugin implements IFMLLoadingPlugin {
     public static Logger LOGGER = LogManager.getLogger("Scalar");
 
-    ScalarLoadingPlugin() {
+    public ScalarLoadingPlugin() {
         try {
-            MethodHandles.lookup().findStatic(FMLModContainer.class, "registerLanguageAdapter", MethodType.methodType(Void.class, String.class, ILanguageAdapter.class)).invoke("scala", new ScalaLanguageAdapter());
+            FMLModContainer.class.getDeclaredMethod("registerLanguageAdapter", String.class, ILanguageAdapter.class).invoke(null, "scala", new ScalaLanguageAdapter());
         } catch (Throwable ex) {
-            LOGGER.fatal("Not running on Cleanroom!");
+            LOGGER.fatal("Not running on Cleanroom! Cause by {}", ex);
             FMLCommonHandler.instance().exitJava(1, true);
         }
     }
