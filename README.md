@@ -1,6 +1,7 @@
 ## Scalar
 
 Standalone Scala provider mod, support Scala 3 and Scala 2.11
+Use with experimental branch Cleanroom (3025+) 
 
 ### Downloads:
 
