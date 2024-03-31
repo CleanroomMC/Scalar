@@ -13,7 +13,7 @@ Use with experimental branch Cleanroom (3025+)
 ### Development (temporary):
 
 1. Add 
-```
+```groovy
 maven {
     name "outlandsReleases"
     url "https://maven.outlands.top/releases"
@@ -23,7 +23,7 @@ to your repositories
 
 2. Add `implementation "com.cleanroommc:scalar:3.4.1"` to your dependencies
 3. Add
-```
+```groovy
     embed 'org.scala-lang:scala3-compiler_3:3.4.1'
     embed 'org.scala-lang:scala3-library_3:3.4.1'
     embed 'org.scala-lang.modules:scala-parser-combinators_3:2.3.0'
