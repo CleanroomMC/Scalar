@@ -32,4 +32,5 @@ to your repositories
     embed 'org.scala-lang.modules:scala-asm:9.6.0-scala-1'
 ```
 to your dependencies (Yes you need to declare them yourself)
+
 4. `modLanguage = "scala"` in `@Mod()`
