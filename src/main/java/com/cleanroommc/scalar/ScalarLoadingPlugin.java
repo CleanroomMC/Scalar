@@ -1,17 +1,12 @@
 package com.cleanroommc.scalar;
 
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.FMLCommonHandler;
-import net.minecraftforge.fml.common.FMLModContainer;
 import net.minecraftforge.fml.common.ILanguageAdapter;
-import net.minecraftforge.fml.relauncher.FMLSecurityManager;
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.annotation.Nullable;
-import java.lang.invoke.MethodHandles;
-import java.lang.invoke.MethodType;
 import java.util.Map;
 
 public class ScalarLoadingPlugin implements IFMLLoadingPlugin {
@@ -19,7 +14,7 @@ public class ScalarLoadingPlugin implements IFMLLoadingPlugin {
 
     public ScalarLoadingPlugin() {
         try {
-            FMLModContainer.class.getDeclaredMethod("registerLanguageAdapter", String.class, ILanguageAdapter.class).invoke(null, "scala", new ScalaLanguageAdapter());
+            Class.forName("com.cleanroommc.loader.LanguageAdapterRegistry").getDeclaredMethod("registerLanguageAdapter", String.class, ILanguageAdapter.class).invoke(null, "scala", new ScalaLanguageAdapter());
         } catch (Throwable ex) {
             LOGGER.fatal("Not running on Cleanroom! Cause by {}", ex);
             FMLCommonHandler.instance().exitJava(1, true);
