@@ -262,8 +262,7 @@ publishing {
     }
     publications {
         maven(MavenPublication) {
-            artifacts sourcesJar
-            artifacts apiJar
+            artifact apiJar
             groupId = project.maven_group
             artifactId = project.mod_id
             version = project.mod_version
