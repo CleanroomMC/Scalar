@@ -196,21 +196,8 @@ tasks.register('generateMetaFiles') {
         }
     }
 }
-jar.dependsOn("fatJar")
-jar {
-    archiveClassifier = "api"
-    manifest {
-        attributes([
-                'Specification-Title': mod_id,
-                'Specification-Vendor': "kappa-maintainer",
-                'Specification-Version': '1', // We are version 1 of ourselves
-                'FMLCorePlugin': project.coremod_plugin_class_name
-        ])
-    }
-}
 
-tasks.register('fatJar', Jar){
-    archiveClassifier = "fat"
+jar {
     into('/') {
         // Add all of the dependency JARs to the main JAR for later extraction
         from configurations.embed
@@ -240,6 +227,24 @@ tasks.register('fatJar', Jar){
     dependsOn generateMetaFiles
 }
 
+tasks.register('apiJar', Jar){
+    archiveClassifier = "api"
+    manifest {
+        attributes([
+                'Specification-Title': mod_id,
+                'Specification-Vendor': "kappa-maintainer",
+                'Specification-Version': '1', // We are version 1 of ourselves
+                'FMLCorePlugin': project.coremod_plugin_class_name
+        ])
+    }
+    from sourceSets.main.output
+}
+
+artifacts {
+    archives jar
+    archives apiJar
+}
+
 tasks.named("processIdeaSettings").configure {
     dependsOn("injectTags")
 }
@@ -257,6 +262,8 @@ publishing {
     }
     publications {
         maven(MavenPublication) {
+            artifacts sourcesJar
+            artifacts apiJar
             groupId = project.maven_group
             artifactId = project.mod_id
             version = project.mod_version
