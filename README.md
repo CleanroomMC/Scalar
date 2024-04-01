@@ -22,7 +22,7 @@ maven {
 ```
 to your repositories
 
-2. Add `implementation "com.cleanroommc:scalar:3.4.1"` to your dependencies
+2. Add `implementation "com.cleanroommc:scalar:3.4.1:api"` to your dependencies
 3. Add
 ```groovy
     implementation 'org.scala-lang:scala3-compiler_3:3.4.1'
