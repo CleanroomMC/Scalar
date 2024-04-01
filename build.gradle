@@ -86,6 +86,15 @@ tasks.injectTags.outputClassName.set("${maven_group}.${project.mod_id}.Tags")
 repositories {
     flatDir { dir 'libs' }
     maven {
+        url 'https://maven.minecraftforge.net'
+        metadataSources {
+            artifact()
+        }
+    }
+    maven {
+        url 'https://repo.papermc.io/'
+    }
+    maven {
         name 'CleanroomMC Maven'
         url 'https://maven.cleanroommc.com'
     }
@@ -105,7 +114,7 @@ repositories {
         name = 'BlameJared Maven'
     }
 
-    mavenLocal() // Must be last for caching to work
+    mavenCentral() // Must be last for caching to work
 }
 
 dependencies {
@@ -135,14 +144,14 @@ dependencies {
     implementation "com.google.guava:guava:33.0.0-jre"
 
     embed 'org.scala-lang:scala-actors-migration_2.11:1.1.0'
-    embed 'org.scala-lang:scala-compiler:2.11.12'
+    embed 'org.scala-lang:scala-compiler:2.11.1'
     // We change the version so old installs don't break, as our clone of the jar is different the maven central
-    embed 'org.scala-lang.plugins:scala-continuations-library_2.11:1.0.3'
-    embed 'org.scala-lang.plugins:scala-continuations-plugin_2.11.11:1.0.3'
+    embed 'org.scala-lang.plugins:scala-continuations-library_2.11:1.0.2_mc'
+    embed 'org.scala-lang.plugins:scala-continuations-plugin_2.11.1:1.0.2_mc'
 
-    embed 'org.scala-lang:scala-library:2.11.12'
-    embed 'org.scala-lang.modules:scala-parser-combinators_2.11:2.2.0'
-    embed 'org.scala-lang:scala-reflect:2.11.12'
+    embed 'org.scala-lang:scala-library:2.11.1'
+    embed 'org.scala-lang:scala-parser-combinators_2.11:1.0.1'
+    embed 'org.scala-lang:scala-reflect:2.11.1'
     embed 'org.scala-lang:scala-swing_2.11:1.0.1'
     embed 'org.scala-lang:scala-xml_2.11:1.0.2'
 }
@@ -198,6 +207,7 @@ tasks.register('generateMetaFiles') {
 }
 
 jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     into('/') {
         // Add all of the dependency JARs to the main JAR for later extraction
         from configurations.embed
