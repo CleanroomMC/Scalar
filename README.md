@@ -6,7 +6,7 @@ Use with experimental branch Cleanroom (3025+)
 
 ### Downloads:
 
-- [Scala 2.11.x](https://github.com/CleanroomMC/Scalar/releases/tag/2.11.12), used by non-Cleanroom-based Scala mod
+- [Scala 2.11.x](https://github.com/CleanroomMC/Scalar/releases/tag/2.11.1), used by non-Cleanroom-based Scala mod
 - [Scala 3.x](https://github.com/CleanroomMC/Scalar/releases/tag/3.4.1), used by Cleanroom-based new mod or forks
 - You can't install them together!
 - There are 0 Scala 3 mods! (for now)
