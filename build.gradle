@@ -154,6 +154,9 @@ dependencies {
     embed 'org.scala-lang:scala-reflect:2.11.1'
     embed 'org.scala-lang:scala-swing_2.11:1.0.1'
     embed 'org.scala-lang:scala-xml_2.11:1.0.2'
+
+    embed 'com.typesafe.akka:akka-actor_2.11:2.3.3'
+    embed 'com.typesafe:config:1.2.1'
 }
 // Adds Access Transformer files to tasks
 if (project.use_access_transformer.toBoolean()) {
