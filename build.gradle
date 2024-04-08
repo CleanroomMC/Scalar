@@ -221,6 +221,7 @@ jar {
         manifest {
             def attribute_map = [:]
             attribute_map['ContainedDeps'] = configurations.embed.collect { it.name }.join(' ')
+            attribute_map['NonModDeps'] = true
             if (project.use_coremod.toBoolean()) {
                 attribute_map['FMLCorePlugin'] = project.coremod_plugin_class_name
                 if (project.include_mod.toBoolean()) {
