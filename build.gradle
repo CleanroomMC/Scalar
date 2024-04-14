@@ -86,6 +86,15 @@ tasks.injectTags.outputClassName.set("${maven_group}.${project.mod_id}.Tags")
 repositories {
     flatDir { dir 'libs' }
     maven {
+        url 'https://maven.minecraftforge.net'
+        metadataSources {
+            artifact()
+        }
+    }
+    maven {
+        url 'https://repo.papermc.io/'
+    }
+    maven {
         name 'CleanroomMC Maven'
         url 'https://maven.cleanroommc.com'
     }
@@ -105,7 +114,7 @@ repositories {
         name = 'BlameJared Maven'
     }
 
-    mavenLocal() // Must be last for caching to work
+    mavenCentral() // Must be last for caching to work
 }
 
 dependencies {
@@ -140,7 +149,6 @@ dependencies {
     embed 'org.scala-lang.modules:scala-swing_3:3.0.0'
     embed 'org.scala-lang.modules:scala-xml_3:2.2.0'
     embed 'org.scala-lang.modules:scala-asm:9.6.0-scala-1'
-
 }
 // Adds Access Transformer files to tasks
 if (project.use_access_transformer.toBoolean()) {
@@ -194,6 +202,7 @@ tasks.register('generateMetaFiles') {
 }
 
 jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     into('/') {
         // Add all of the dependency JARs to the main JAR for later extraction
         from configurations.embed
@@ -204,6 +213,7 @@ jar {
         manifest {
             def attribute_map = [:]
             attribute_map['ContainedDeps'] = configurations.embed.collect { it.name }.join(' ')
+            attribute_map['NonModDeps'] = true
             if (project.use_coremod.toBoolean()) {
                 attribute_map['FMLCorePlugin'] = project.coremod_plugin_class_name
                 if (project.include_mod.toBoolean()) {
@@ -258,8 +268,7 @@ publishing {
     }
     publications {
         maven(MavenPublication) {
-            artifacts sourcesJar
-            artifacts apiJar
+            artifact apiJar
             groupId = project.maven_group
             artifactId = project.mod_id
             version = project.mod_version
