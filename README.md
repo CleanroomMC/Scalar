@@ -27,10 +27,10 @@ to your repositories
 ```groovy
     implementation 'org.scala-lang:scala3-compiler_3:3.4.1'
     implementation 'org.scala-lang:scala3-library_3:3.4.1'
-    implementation 'org.scala-lang.modules:scala-parser-combinators_3:2.3.0'
-    implementation 'org.scala-lang.modules:scala-swing_3:3.0.0'
-    implementation 'org.scala-lang.modules:scala-xml_3:2.2.0'
-    implementation 'org.scala-lang.modules:scala-asm:9.6.0-scala-1'
+    implementation 'com.typesafe:config:1.4.3'
+    implementation 'org.typelevel:cats-core_3:2.10.0'
+    implementation 'org.typelevel:cats-kernel_3:2.10.0'
+    implementation 'org.typelevel:cats-free_3:2.10.0'
 ```
 to your dependencies (Yes you need to declare them yourself)
 
