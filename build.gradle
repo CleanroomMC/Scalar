@@ -143,12 +143,15 @@ dependencies {
 
     implementation "com.google.guava:guava:33.0.0-jre"
 
-    embed 'org.scala-lang:scala3-compiler_3:3.4.1'
+    //embed 'org.scala-lang:scala3-compiler_3:3.4.1'
     embed 'org.scala-lang:scala3-library_3:3.4.1'
-    embed 'org.scala-lang.modules:scala-parser-combinators_3:2.3.0'
-    embed 'org.scala-lang.modules:scala-swing_3:3.0.0'
-    embed 'org.scala-lang.modules:scala-xml_3:2.2.0'
-    embed 'org.scala-lang.modules:scala-asm:9.6.0-scala-1'
+    embed 'org.scala-lang:scala-library:2.13.13'
+    embed 'com.typesafe:config:1.4.3'
+    embed 'org.typelevel:cats-core_3:2.10.0'
+    embed 'org.typelevel:cats-kernel_3:2.10.0'
+    embed 'org.typelevel:cats-free_3:2.10.0'
+
+
 }
 // Adds Access Transformer files to tasks
 if (project.use_access_transformer.toBoolean()) {
