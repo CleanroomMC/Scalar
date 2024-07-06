@@ -144,12 +144,12 @@ dependencies {
     implementation "com.google.guava:guava:33.0.0-jre"
 
     //embed 'org.scala-lang:scala3-compiler_3:3.4.1'
-    embed 'org.scala-lang:scala3-library_3:3.4.1'
-    embed 'org.scala-lang:scala-library:2.13.13'
+    embed 'org.scala-lang:scala3-library_3:3.4.2'
+    embed 'org.scala-lang:scala-library:2.13.14'
     embed 'com.typesafe:config:1.4.3'
-    embed 'org.typelevel:cats-core_3:2.10.0'
-    embed 'org.typelevel:cats-kernel_3:2.10.0'
-    embed 'org.typelevel:cats-free_3:2.10.0'
+    embed 'org.typelevel:cats-core_3:2.12.0'
+    embed 'org.typelevel:cats-kernel_3:2.12.0'
+    embed 'org.typelevel:cats-free_3:2.12.0'
 
 
 }
