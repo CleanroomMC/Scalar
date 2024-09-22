@@ -2,7 +2,7 @@
 {
   "modid": "scalar",
   "name": "Scalar",
-  "description": "Standalone Scala provider mod, support Scala 2.11.",
+  "description": "Standalone Scala provider mod, support Scala 3.X.",
   "version": "${mod_version}",
   "mcversion": "${minecraft_version}",
   "url": "https://github.com/CleanroomMC/Scalar",
