@@ -22,15 +22,15 @@ maven {
 ```
 to your repositories
 
-2. Add `implementation "com.cleanroommc:scalar:3.4.1:api"` to your dependencies
+2. Add `implementation "com.cleanroommc:scalar:3.5.1:api"` to your dependencies
 3. Add
 ```groovy
-    implementation 'org.scala-lang:scala3-compiler_3:3.4.1'
-    implementation 'org.scala-lang:scala3-library_3:3.4.1'
+    implementation 'org.scala-lang:scala3-compiler_3:3.6.2'
+    implementation 'org.scala-lang:scala3-library_3:3.6.2'
     implementation 'com.typesafe:config:1.4.3'
-    implementation 'org.typelevel:cats-core_3:2.10.0'
-    implementation 'org.typelevel:cats-kernel_3:2.10.0'
-    implementation 'org.typelevel:cats-free_3:2.10.0'
+    implementation 'org.typelevel:cats-core_3:2.12.0'
+    implementation 'org.typelevel:cats-kernel_3:2.12.0'
+    implementation 'org.typelevel:cats-free_3:2.12.0'
 ```
 to your dependencies (Yes you need to declare them yourself)
 
