@@ -244,7 +244,8 @@ tasks.register('apiJar', Jar){
                 'Specification-Title': mod_id,
                 'Specification-Vendor': "kappa-maintainer",
                 'Specification-Version': '1', // We are version 1 of ourselves
-                'FMLCorePlugin': project.coremod_plugin_class_name
+                'FMLCorePlugin': project.coremod_plugin_class_name,
+                'ModType': "CRL"
         ])
     }
     from sourceSets.main.output
