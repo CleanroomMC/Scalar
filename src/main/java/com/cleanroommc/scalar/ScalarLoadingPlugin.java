@@ -16,7 +16,7 @@ public class ScalarLoadingPlugin implements IFMLLoadingPlugin {
         try {
             Class.forName("com.cleanroommc.loader.LanguageAdapterRegistry").getDeclaredMethod("registerLanguageAdapter", String.class, ILanguageAdapter.class).invoke(null, "scala", new ScalaLanguageAdapter());
         } catch (Throwable ex) {
-            LOGGER.fatal("Not running on Cleanroom! Cause by {}", ex);
+            LOGGER.fatal("Scalar was loaded in non-Cleanroom environment. This shouldn't be possible, please re-download the mod file.");
         }
     }
 
