@@ -1,14 +1,14 @@
 [
 {
   "modid": "scalar",
-  "name": "Scalar",
-  "description": "Standalone Scala provider mod, support Scala 2.11.",
-  "version": "${mod_version}",
-  "mcversion": "${minecraft_version}",
+  "name": "Scalar Legacy",
+  "description": "Scala language adapter provider ships Scala 2.11, supports legacy Forge mods",
+  "version": "1.0.0",
+  "mcversion": "1.12.2",
   "url": "https://github.com/CleanroomMC/Scalar",
   "updateUrl": "",
   "authorList": ["CleanroomMC", "kappa_maintainer"],
-  "credits": "ShadowFact",
+  "credits": "",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []

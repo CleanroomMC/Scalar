@@ -1,5 +1,6 @@
 package com.cleanroommc.scalar;
 
+import com.cleanroommc.loader.LanguageAdapterRegistry;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.ILanguageAdapter;
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
@@ -13,11 +14,7 @@ public class ScalarLoadingPlugin implements IFMLLoadingPlugin {
     public static Logger LOGGER = LogManager.getLogger("Scalar");
 
     public ScalarLoadingPlugin() {
-        try {
-            Class.forName("com.cleanroommc.loader.LanguageAdapterRegistry").getDeclaredMethod("registerLanguageAdapter", String.class, ILanguageAdapter.class).invoke(null, "scala", new ScalaLanguageAdapter());
-        } catch (Throwable ex) {
-            LOGGER.fatal("Scalar was loaded in non-Cleanroom environment. This shouldn't be possible, please re-download the mod file.");
-        }
+        LanguageAdapterRegistry.registerLanguageAdapter("scala", new ScalaLanguageAdapter());
     }
 
     @Override
