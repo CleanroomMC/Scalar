@@ -6,8 +6,8 @@ import net.minecraftforge.fml.common.ModMetadata;
 public class ScalarModContainer extends DummyModContainer {
     public ScalarModContainer() {
         super(new ModMetadata(){{
-                modId = Tags.MOD_ID;
-                version = Tags.MOD_VERSION;
+                modId = Reference.MOD_ID;
+                version = Reference.VERSION;
                 name = "Scalar";
         }});
     }
