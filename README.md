@@ -7,7 +7,7 @@ Use with alpha version Cleanroom
 ### Downloads:
 
 - [Scalar Legacy](https://legacy.curseforge.com/minecraft/mc-mods/scalar-legacy), ships Scala 2.11.1, used by non-Cleanroom-based Scala mod
-- [Scala](https://github.com/CleanroomMC/Scalar/releases/tag/3.4.1), ships Scala 3.x, used by Cleanroom mods
+- [Scala](https://legacy.curseforge.com/minecraft/mc-mods/scalar), ships Scala 3.x, used by Cleanroom mods
 - You can't install them at same time!
 
 ### Development guide:
