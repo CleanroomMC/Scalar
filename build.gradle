@@ -7,7 +7,7 @@ plugins {
     id 'maven-publish'
     id 'org.jetbrains.gradle.plugin.idea-ext' version '1.1.10'
     id 'org.jetbrains.changelog' version '2.2.1'
-    id 'xyz.wagyourtail.unimined' version '1.3.14'
+    id 'xyz.wagyourtail.unimined' version '1.4.1'
 }
 
 apply from: 'gradle/scripts/helpers.gradle'
@@ -33,7 +33,7 @@ version = propertyString('mod_version')
 group = propertyString('root_package')
 
 base {
-    archivesName.set(propertyString('mod_id'))
+    archivesName.set(propertyString('mod_name'))
 }
 
 
@@ -66,7 +66,7 @@ unimined.minecraft {
         if (propertyBool('use_access_transformer')) {
             accessTransformer 'src/main/resources/META-INF/' +  propertyString('access_transformer_locations')
         }
-        loader "0.3.0-alpha"
+        loader "0.3.13-alpha"
         runs.config("client") {
             jvmArgs extra_jvm_args
         }
