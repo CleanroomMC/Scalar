@@ -1,6 +1,8 @@
 package com.cleanroommc.scalar;
 
+import com.google.common.eventbus.EventBus;
 import net.minecraftforge.fml.common.DummyModContainer;
+import net.minecraftforge.fml.common.LoadController;
 import net.minecraftforge.fml.common.ModMetadata;
 
 import java.util.List;
@@ -15,5 +17,10 @@ public class ScalarModContainer extends DummyModContainer {
                 url = "https://github.com/CleanroomMC/Scalar";
                 authorList = List.of("CleanroomMC", "kappa_maintainer");
         }});
+    }
+
+    @Override
+    public boolean registerBus(EventBus bus, LoadController controller) {
+        return true;
     }
 }
