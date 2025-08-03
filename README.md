@@ -2,35 +2,31 @@
 
 Standalone Scala provider mod, support Scala 3 and Scala 2.11
 
-Use with alpha version Cleanroom
-
 ### Downloads:
 
-- [Scalar Legacy](https://legacy.curseforge.com/minecraft/mc-mods/scalar-legacy), ships Scala 2.11.1, used by non-Cleanroom-based Scala mod
-- [Scalar](https://legacy.curseforge.com/minecraft/mc-mods/scalar), ships Scala 3.x, used by Cleanroom mods
-- You can't install them at same time!
+- [Scala Legacy](https://github.com/CleanroomMC/Scalar/releases/tag/2.11.1), use that if you are updating from Forge and/or don't know what's going on
+- [Scala](https://github.com/CleanroomMC/Scalar/releases/tag/3.4.1), will crash with most existing mods, used that if you know what you are doing
+- You can't install them together!
+- There is only 1 Scala 3 mods in 1.12.2! (OpenComputer Rescaled)
 
-### Development guide:
+### Development (temporary):
 
-1. Add 
+1. Add
 ```groovy
 maven {
     name "outlandsReleases"
-    url "https://maven.arcseekers.com/releases"
+    url "https://maven.outlands.top/releases"
 }
 ```
 to your repositories
 
-2. Add `runtimeOnly "com.cleanroommc:scalar:1.0.0"` to your dependencies
-
-3. Add
+2. Add `implementation "com.cleanroommc:scalar:1.0.0"` to your dependencies (It will be shown as disabled in modlist but that's fine)
+3. 
+Set your scala version to latest using scala plugin [document](https://docs.gradle.org/current/userguide/scala_plugin.html)
+Example:
 ```groovy
 scala {
-    scalaVersion = '3.6.4'
+    scalaVersion = '3.7.2'
 }
 ```
-to your build script
-
-4. Set `modLanguage = "scala"` in `@Mod()`
-
-5. Scala 2 -> 3 porting guide is WIP
+4. `modLanguage = "scala"` in `@Mod()`
