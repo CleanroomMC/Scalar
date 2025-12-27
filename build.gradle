@@ -1,5 +1,4 @@
-import org.jetbrains.changelog.Changelog
-import org.jetbrains.gradle.ext.Gradle
+import org.jetbrains.gradle.ext.Gradle 
 
 plugins {
     id 'java'
@@ -7,7 +6,7 @@ plugins {
     id 'maven-publish'
     id 'org.jetbrains.gradle.plugin.idea-ext' version '1.1.10'
     id 'org.jetbrains.changelog' version '2.2.1'
-    id 'xyz.wagyourtail.unimined' version '1.4.1'
+    id 'xyz.wagyourtail.unimined' version '1.4.9-kappa'
 }
 
 apply from: 'gradle/scripts/helpers.gradle'
@@ -33,13 +32,13 @@ version = propertyString('mod_version')
 group = propertyString('root_package')
 
 base {
-    archivesName.set(propertyString('mod_id'))
+    archivesName = propertyString('mod_id')
 }
 
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(21))
+        languageVersion = JavaLanguageVersion.of(21)
     }
     if (propertyBool('generate_sources_jar')) {
         withSourcesJar()
@@ -64,9 +63,9 @@ unimined.minecraft {
 
     cleanroom {
         if (propertyBool('use_access_transformer')) {
-            accessTransformer 'src/main/resources/META-INF/' +  propertyString('access_transformer_locations')
+            accessTransformer "src/main/resources/META-INF/${propertyString('access_transformer_locations')}"
         }
-        loader "0.3.13-alpha"
+        loader "0.3.31-alpha"
         runs.config("client") {
             jvmArgs extra_jvm_args
         }
@@ -205,18 +204,6 @@ test {
     }
 }
 
-String parserChangelog() {
-    if (!file('CHANGELOG.md').exists()) {
-        throw new GradleException('publish_with_changelog is true, but CHANGELOG.md does not exist in the workspace!')
-    }
-    String parsedChangelog = changelog.renderItem(
-            changelog.get(propertyString('mod_version')).withHeader(false).withEmptySections(false),
-            Changelog.OutputType.MARKDOWN)
-    if (parsedChangelog.isEmpty()) {
-        throw new GradleException('publish_with_changelog is true, but the changelog for the latest version is empty!')
-    }
-    return parsedChangelog
-}
 
 def injectTags() {
     var target = new File("${rootProject.projectDir}/src/main/java/${root_package.replace('.', '/')}/${mod_id}/Reference.java")
