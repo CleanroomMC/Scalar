@@ -4,9 +4,9 @@ plugins {
     id 'java'
     id 'java-library'
     id 'maven-publish'
-    id 'org.jetbrains.gradle.plugin.idea-ext' version '1.1.10'
+    id 'org.jetbrains.gradle.plugin.idea-ext' version '1.4.1'
     id 'org.jetbrains.changelog' version '2.2.1'
-    id 'xyz.wagyourtail.unimined' version '1.4.9-kappa'
+    id 'xyz.wagyourtail.unimined' version '1.4.17-kappa'
 }
 
 apply from: 'gradle/scripts/helpers.gradle'
@@ -38,7 +38,7 @@ base {
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
+        languageVersion = JavaLanguageVersion.of(25)
     }
     if (propertyBool('generate_sources_jar')) {
         withSourcesJar()
@@ -65,7 +65,7 @@ unimined.minecraft {
         if (propertyBool('use_access_transformer')) {
             accessTransformer "src/main/resources/META-INF/${propertyString('access_transformer_locations')}"
         }
-        loader "0.3.31-alpha"
+        loader "0.5.7-alpha"
         runs.config("client") {
             jvmArgs extra_jvm_args
         }
@@ -189,13 +189,13 @@ idea {
 }
 
 compileTestJava {
-    sourceCompatibility = targetCompatibility = JavaVersion.VERSION_21
+    sourceCompatibility = targetCompatibility = JavaVersion.VERSION_25
 }
 
 test {
     useJUnitPlatform()
     javaLauncher.set(javaToolchains.launcherFor {
-        languageVersion = JavaLanguageVersion.of(21)
+        languageVersion = JavaLanguageVersion.of(25)
     })
     if (propertyBool('show_testing_output')) {
         testLogging {
