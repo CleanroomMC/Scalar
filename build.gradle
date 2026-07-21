@@ -28,7 +28,7 @@ setDefaultProperty 'generate_javadocs_jar', true, false
 setDefaultProperty 'minecraft_username', true, 'Developer'
 setDefaultProperty 'extra_jvm_args', false, ''
 
-version = propertyString('mod_version')
+version = "${propertyString('mod_version')}-1"
 group = propertyString('root_package')
 
 base {
@@ -65,7 +65,7 @@ unimined.minecraft {
         if (propertyBool('use_access_transformer')) {
             accessTransformer "src/main/resources/META-INF/${propertyString('access_transformer_locations')}"
         }
-        loader "0.5.17-alpha"
+        loader "0.6.2-alpha"
         runs.config("client") {
             jvmArgs extra_jvm_args
         }
