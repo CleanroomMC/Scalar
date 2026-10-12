@@ -20,7 +20,7 @@ dependencies {
 
 
     contain "org.scala-lang:scala-library:${mod_version}"
-    contain ('org.scala-lang.modules:scala-parser-combinators_3:2.4.0') {
+    contain ('org.scala-lang.modules:scala-parser-combinators_3:2.5.0') {
         transitive = false
     }
     contain("org.scala-lang:scala3-tasty-inspector_3:${mod_version}") {
